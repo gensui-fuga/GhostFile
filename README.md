@@ -110,3 +110,41 @@ python GhostFile.py -d 秘密笔记.md.enc
 - **绝对不要用文本编辑器“另存为”伪装文件**，这几乎一定会破坏零宽字符，导致数据永久丢失！
 - 移动或复制文件时，请使用文件管理器直接拷贝，不要通过文本编辑器中转。
 - 密码请离线安全保存，没有任何找回机制。
+## 便携版（无需 Python 环境）
+
+项目提供了预打包的独立可执行文件，**无需安装 Python 及任何依赖**，下载后可直接运行。
+
+### 下载
+前往 [Releases](https://github.com/你的用户名/你的仓库/releases) 页面，根据系统下载对应文件：
+
+- **Windows**：`GhostFile.exe`
+- **Linux**：`GhostFile`（赋予执行权限后使用）
+
+### 自行打包
+你也可以从源码自行打包（需先安装 PyInstaller）：
+
+```bash
+pip install pyinstaller
+
+# Windows / Linux 通用命令
+pyinstaller --onefile --name GhostFile GhostFile.py
+```
+
+生成的文件在 `dist/` 目录下：
+
+- Windows → `dist/GhostFile.exe`
+- Linux → `dist/GhostFile`
+
+### 使用
+与源码脚本用法完全一致：
+
+```bash
+# Windows
+GhostFile.exe -w "糯米狐" 文件.md
+GhostFile.exe -d 文件.md.enc
+
+# Linux
+chmod +x GhostFile
+./GhostFile -w 长文本.txt 资料.pdf
+./GhostFile -d 资料.pdf.enc
+```
