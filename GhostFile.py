@@ -3,9 +3,9 @@
 文件多层加密/解密工具（伪装 + 压缩 + 零宽隐写）
 加密流程：zlib压缩 → 凯撒字节移位 → AES-256-CBC → Base64 → 零宽字符编码 → 嵌入伪装文字
 用法：
-  伪装加密：python LUKS.py -w <文字或文件> <待加密文件>
-  普通加密：python LUKS.py <待加密文件>
-  解    密：python LUKS.py -d <加密文件>
+  伪装加密：python GhostFile.py -w <文字或文件> <待加密文件>
+  普通加密：python GhostFile.py <待加密文件>
+  解    密：python GhostFile.py -d <加密文件>
 """
 
 import sys
@@ -138,7 +138,7 @@ def decrypt_file(filepath: str, password: str) -> None:
     key = derive_key(password, salt)
     try:
         caesar_data = aes_decrypt(aes_cipher, key, iv)
-    except (ValueError, KeyError):
+    except ValueError:
         sys.exit("错误：密码错误或文件已损坏，解密失败。")
 
     # 凯撒解密

@@ -115,7 +115,7 @@ python GhostFile.py -d 秘密笔记.md.enc
 项目提供了预打包的独立可执行文件，**无需安装 Python 及任何依赖**，下载后可直接运行。
 
 ### 下载
-前往 [Releases](https://github.com/你的用户名/你的仓库/releases) 页面，根据系统下载对应文件：
+前往 [Releases](https://github.com/gensui-fuga/GhostFile/releases) 页面，根据系统下载对应文件：
 
 - **Windows**：`GhostFile.exe`
 - **Linux**：`GhostFile`（赋予执行权限后使用）
